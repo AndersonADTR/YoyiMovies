@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayCircleOutline
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,12 +17,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.yoyi.movies.models.MediaItem
+import com.yoyi.movies.ui.theme.Dimens
 
 @Composable
 fun Thumb(mediaItem: MediaItem, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .height(200.dp)
+            .height(Dimens.large.cardHeight)
             .fillMaxWidth()
     ) {
         AsyncImage(
@@ -35,9 +37,9 @@ fun Thumb(mediaItem: MediaItem, modifier: Modifier = Modifier) {
                 Icons.Default.PlayCircleOutline,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(92.dp)
+                    .size(Dimens.xLarge.icon)
                     .align(Alignment.Center),
-                tint = Color.White
+                tint = MaterialTheme.colorScheme.onPrimary
             )
         }
     }

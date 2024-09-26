@@ -20,23 +20,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import com.yoyi.movies.models.MediaItem
 import com.yoyi.movies.models.getMedia
 import com.yoyi.movies.ui.screens.shared.Thumb
+import com.yoyi.movies.ui.theme.Dimens
 
 @Composable
 fun MediaList(onClick: (MediaItem) -> Unit, modifier: Modifier = Modifier) {
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(200.dp),
-        contentPadding = PaddingValues(2.dp),
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(Dimens.xSmall.padding),
         modifier = modifier
     ) {
         items(getMedia()) { item ->
             MediaListItem(
                 onClick = { onClick(item) },
                 item = item,
-                modifier = Modifier.padding(4.dp)
+                modifier = Modifier.padding(Dimens.small.padding)
             )
         }
     }
@@ -50,11 +50,11 @@ private fun MediaListItem(
 ) {
     Card (
         modifier = modifier.clickable { onClick() },
-        elevation = cardElevation(0.dp),
-        border = BorderStroke(1.dp, Color.LightGray),
+        elevation = cardElevation(Dimens.small.default),
+        border = BorderStroke(Dimens.xSmall.default, MaterialTheme.colorScheme.onPrimaryContainer),
         colors = cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = Color.DarkGray
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
     ) {
         Column {
@@ -71,10 +71,11 @@ private fun Title(item: MediaItem) {
         modifier = Modifier
             .fillMaxWidth()
             .background(color = Color.Transparent)
-            .padding(16.dp)
+            .padding(Dimens.large.padding)
     ) {
         Text(
             text = item.title,
+            color = MaterialTheme.colorScheme.onPrimary,
             style = MaterialTheme.typography.headlineSmall
         )
     }

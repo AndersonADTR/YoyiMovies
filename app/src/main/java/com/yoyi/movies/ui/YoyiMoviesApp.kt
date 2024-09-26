@@ -9,7 +9,7 @@ import com.yoyi.movies.ui.theme.YoyiMoviesTheme
 fun YoyiMoviesApp(content: @Composable () -> Unit) {
     YoyiMoviesTheme {
         // A surface container using the 'background' color from the theme
-        Surface(color = MaterialTheme.colorScheme.background) {
+        Surface(color = MaterialTheme.colorScheme.surface) {
             content()
         }
     }
