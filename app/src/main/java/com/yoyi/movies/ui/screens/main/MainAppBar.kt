@@ -14,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yoyi.movies.R
 import com.yoyi.movies.ui.screens.shared.AppBarAction
+import com.yoyi.movies.ui.theme.Dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,6 +41,6 @@ fun MainAppBar(
 private fun TitleAppBar(title: String) {
     Row {
         Text(text = title)
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(Dimens.large.default))
     }
 }
